@@ -7,7 +7,10 @@ const webpackBaseConfig = {
     filename: '[name]_[fullhash:4].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      pages: path.resolve(__dirname, '../src/pages')
+    }
   },
   module: {
     rules: [
