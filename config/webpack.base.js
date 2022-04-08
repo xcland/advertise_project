@@ -7,7 +7,7 @@ const webpackBaseConfig = {
     filename: '[name]_[fullhash:4].js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
     rules: [
@@ -22,6 +22,10 @@ const webpackBaseConfig = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        use: "ts-loader"
       }
     ]
   }
