@@ -25,14 +25,20 @@ class IndexPage extends Component<Props> {
   render() {
     return (
       <div className="index-page">
-        hello, React.
-        <div className="middle-box">
-          <span>here is index page</span>
-          <Button type="primary">按钮</Button>
+        <div className="head-box">header</div>
+        <div className="content-box">
+          <div className="left-content">
+            <div className="chart-area">chart</div>
+            <div className="promotion-card-area">promotion card</div>
+            <div className="product-card-area">product card</div>
+          </div>
+          <div className="right-content">
+            <div className="account-area">account</div>
+            <div className="index-banner-area">index banner</div>
+            <div className="product-news-area">product news</div>
+          </div>
         </div>
-        <div>
-          <DatePicker onChange={this.handleDate} />
-        </div>
+        <div className="footer-box">footer</div>
       </div>
     )
   }
