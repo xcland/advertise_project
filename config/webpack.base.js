@@ -1,5 +1,6 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { transpile } = require('typescript')
 
 const devMode = process.env.NODE_ENV !== 'production'
 console.log(devMode)
@@ -13,13 +14,14 @@ const webpackBaseConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      pages: path.resolve(__dirname, '../src/pages')
+      pages: path.resolve(__dirname, '../src/pages/'),
+      '@utils': path.resolve(__dirname, '../src/utils/')
     }
   },
   module: {
     rules: [
       {
-        test: /\.js[x]/,
+        test: /\.(js|jsx)$/,
         use: 'babel-loader'
       },
       {
@@ -32,7 +34,13 @@ const webpackBaseConfig = {
       },
       {
         test: /\.(ts|tsx)$/,
-        use: "ts-loader"
+        use: {
+          loader: "ts-loader",
+          // options: {
+          //   transpileOnly: true,
+          //   // speed up compilation significantly
+          // }
+        }
       }
     ]
   }

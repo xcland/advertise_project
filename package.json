@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browser": {
+    "@utils": false
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-transform-runtime": "^7.12.1",
@@ -52,6 +55,9 @@
     "@typescript-eslint/parser": "^5.18.0",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
+    "dayjs": "^1.11.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
