@@ -16,7 +16,8 @@ const webpackBaseConfig = {
     alias: {
       pages: path.resolve(__dirname, '../src/pages/'),
       '@utils': path.resolve(__dirname, '../src/utils/'),
-      '@components': path.resolve(__dirname, '../src/components')
+      '@components': path.resolve(__dirname, '../src/components'),
+      "@constants": path.resolve(__dirname, '../src/common/constants')
     }
   },
   module: {
