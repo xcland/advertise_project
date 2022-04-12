@@ -39,7 +39,62 @@ const defaultCardData = [
 class Chart extends React.Component<IProps, IStates> {
   state = {
     cardData: this.props.cardData || defaultCardData,
+    chartData: [
+      {
+        year: '2011',
+        value: 3,
+      },
+      {
+        year: '2012',
+        value: 4,
+      },
+      {
+        year: '2013',
+        value: 3.5,
+      },
+      {
+        year: '2014',
+        value: 5,
+      },
+      {
+        year: '2015',
+        value: 4.9,
+      },
+      {
+        year: '2016',
+        value: 6,
+      },
+      {
+        year: '2017',
+        value: 7,
+      },
+      {
+        year: '2018',
+        value: 9,
+      },
+      {
+        year: '2019',
+        value: 13,
+      },
+    ],
   }
+
+  handleTabsChange = (selectedId: string) => {
+    const { cardData, chartData } = this.state
+    const newCardData = cardData.map((data: CardItemType) => ({
+      ...data,
+      isSelected: data.id === selectedId,
+    }))
+    // 模拟数据改变
+    this.setState({
+      cardData: newCardData,
+      chartData: chartData.map((data) => ({
+        ...data,
+        value: (data.value += 2),
+      })),
+    })
+  }
+
   render(): React.ReactNode {
     const { cardData } = this.state
     return (
@@ -53,20 +108,10 @@ class Chart extends React.Component<IProps, IStates> {
           />
         </div>
         <div className="line-chart-box">
-          <LineChart />
+          <LineChart chartData={this.state.chartData} />
         </div>
       </div>
     )
-  }
-  handleTabsChange = (selectedId: string) => {
-    const { cardData } = this.state
-    const newCardData = cardData.map((data: CardItemType) => ({
-      ...data,
-      isSelected: data.id === selectedId,
-    }))
-    this.setState({
-      cardData: newCardData,
-    })
   }
 }
 
