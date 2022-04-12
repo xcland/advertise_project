@@ -4,11 +4,11 @@ import './style.scss'
 interface IProps {}
 interface IStates {}
 
-class Chart extends React.Component<IProps, IStates> {
+class LineChart extends React.Component<IProps, IStates> {
   state = {}
   render(): React.ReactNode {
-    return <div>这是Chart组件</div>
+    return <div>LineChart</div>
   }
 }
 
-export default Chart
+export default LineChart

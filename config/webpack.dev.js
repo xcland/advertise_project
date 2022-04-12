@@ -27,7 +27,7 @@ const webpackDevConfig = {
   ],
   devtool: 'eval-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, '.'),
+    contentBase: path.resolve(__dirname, '../src'),
     historyApiFallback: false,
     hot: false,
     host: '0.0.0.0',

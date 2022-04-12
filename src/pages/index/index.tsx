@@ -3,13 +3,16 @@ import axios from 'axios'
 import moment from 'moment'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import Chart from './components/Chart'
+import Chart from './components/DataTrend'
 import PromotionCard from './components/PromotionCard'
 import ProductCard from './components/ProductCard'
 import Account from './components/Account'
 import IndexBanner from './components/IndexBanner'
 import ProductNews from './components/ProductNews'
+import { Select, DatePicker } from 'antd'
 import './style.scss'
+
+const { Option } = Select
 
 interface Props {}
 
@@ -38,6 +41,29 @@ class IndexPage extends Component<Props> {
         <div className="content-box">
           <div className="left-content">
             <div className="chart-area">
+              <div className="header-box">
+                <div className="title">数据趋势</div>
+                <div className="select-area">
+                  <Select
+                    defaultValue="0"
+                    style={{ width: 120 }}
+                    // onChange={this.handlePromotionChange}
+                    size="small"
+                  >
+                    <Option value="0">全部推广产品</Option>
+                    <Option value="1">搜索推广</Option>
+                    <Option value="2">一站式推广</Option>
+                    <Option value="3">合约推广</Option>
+                    <Option value="4">知识营销</Option>
+                  </Select>
+                  <DatePicker
+                    // onChange={this.handalDateChange}
+                    size="small"
+                    style={{ marginLeft: 10 }}
+                    placeholder="请选择日期"
+                  />
+                </div>
+              </div>
               <Chart />
             </div>
             <div className="promotion-card-area">

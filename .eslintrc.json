@@ -22,6 +22,7 @@
           ["pages", "./src/pages"],
           ["common", "./src/common"],
           ["@constants", "./src/common/constants"],
+          ["@assets", "./src/assets"],
           ["@utils", "./src/utils"],
           ["@components", "./src/components"],
           ["context", "./src/context"],
