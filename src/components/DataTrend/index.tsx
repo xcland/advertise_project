@@ -2,10 +2,11 @@ import React from 'react'
 import CardTabs from './components/CardTabs'
 import LineChart from './components/LineChart'
 import { CardItemType } from './components/CardTabs/types'
+import { CardDataType } from './types'
 import './style.scss'
 
 interface IProps {
-  cardData?: any
+  cardData?: Array<CardDataType>
 }
 interface IStates {}
 
