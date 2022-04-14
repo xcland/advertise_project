@@ -2,7 +2,9 @@ import React from 'react'
 import ProCardItem from './ProCardItem'
 import './style.scss'
 
-interface IProps {}
+interface IProps {
+  history?: any
+}
 interface IStates {}
 
 const PromotionData = [
@@ -42,6 +44,12 @@ const PromotionData = [
 
 class PromotionCard extends React.Component<IProps, IStates> {
   state = {}
+
+  handleEnter = () => {
+    const { history } = this.props
+    history.push('/searchPromotion')
+  }
+
   render(): React.ReactNode {
     return (
       <div className="promotion-card-component-box">
@@ -54,6 +62,9 @@ class PromotionCard extends React.Component<IProps, IStates> {
             btnStatus={promoItem.btnStatus}
             type={promoItem.type}
             desc={promoItem.desc}
+            onEnter={() => {
+              this.handleEnter()
+            }}
           />
         ))}
       </div>

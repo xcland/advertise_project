@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import { RouteComponentProps } from 'react-router-dom'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Chart from './components/DataTrend'
@@ -14,7 +15,7 @@ import './style.scss'
 
 const { Option } = Select
 
-interface Props {}
+interface Props extends RouteComponentProps {}
 
 class IndexPage extends Component<Props> {
   componentDidMount() {
@@ -33,6 +34,7 @@ class IndexPage extends Component<Props> {
   }
 
   render() {
+    const { history } = this.props
     return (
       <div className="index-page">
         <div className="head-box">
@@ -67,7 +69,7 @@ class IndexPage extends Component<Props> {
               <Chart />
             </div>
             <div className="promotion-card-area">
-              <PromotionCard />
+              <PromotionCard history={history} />
             </div>
             <div className="product-card-area">
               <ProductCard />
