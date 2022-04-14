@@ -36,7 +36,12 @@ const webpackBaseConfig = {
       },
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader'
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true
+          }
+        }
       },
       {
         test: /\.(css|scss)$/,

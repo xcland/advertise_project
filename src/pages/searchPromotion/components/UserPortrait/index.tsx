@@ -4,10 +4,10 @@ import './style.scss'
 interface IProps {}
 interface IStates {}
 
-class UserProtrait extends React.Component<IProps, IStates> {
+class UserPortrait extends React.Component<IProps, IStates> {
   render(): React.ReactNode {
-    return <div>UserProtrait</div>
+    return <div>UserPortrait</div>
   }
 }
 
-export default UserProtrait
+export default UserPortrait

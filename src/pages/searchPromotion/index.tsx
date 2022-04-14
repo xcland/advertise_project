@@ -2,11 +2,12 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import Account from './components/Account'
 import DataTrend from '@components/DataTrend'
-import UserProtrait from './components/UserProtrait'
+import UserProtrait from './components/UserPortrait'
 import WaveAnalysis from './components/WaveAnalysis'
 import Header from '@components/Header'
 import './style.scss'
 import { CardDataType } from '@components/DataTrend/types'
+import Footer from '@components/Footer'
 
 interface IProps extends RouteComponentProps {}
 
@@ -69,13 +70,16 @@ class SearchPromotionPage extends React.Component<IProps> {
             <DataTrend cardData={cardData} />
           </div>
           <div className="wave-analysis-box">
+            <div className="title">波动分析</div>
             <WaveAnalysis />
           </div>
-          <div className="user-protrait-box">
+          <div className="user-portrait-box">
             <UserProtrait></UserProtrait>
           </div>
         </div>
-        <div className="footer"></div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     )
   }
