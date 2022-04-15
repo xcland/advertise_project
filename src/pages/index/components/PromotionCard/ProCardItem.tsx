@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Modal, Radio, InputNumber } from 'antd'
 import { EditOutlined } from '@ant-design/icons'
+import { ThemeContext } from '@context/theme'
 import './style.scss'
 
 interface IProps {
@@ -160,5 +161,7 @@ class ProCardItem extends React.Component<IProps, IStates> {
     )
   }
 }
+
+ProCardItem.contextType = ThemeContext
 
 export default ProCardItem

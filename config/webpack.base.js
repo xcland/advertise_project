@@ -17,7 +17,8 @@ const webpackBaseConfig = {
       '@utils': path.resolve(__dirname, '../src/utils/'),
       '@components': path.resolve(__dirname, '../src/components'),
       "@constants": path.resolve(__dirname, '../src/common/constants'),
-      '@assets': path.resolve(__dirname, '../src/assets')
+      '@assets': path.resolve(__dirname, '../src/assets'),
+      '@context': path.resolve(__dirname, '../src/context')
     }
   },
   module: {
@@ -36,6 +37,7 @@ const webpackBaseConfig = {
       },
       {
         test: /\.(js|jsx)$/,
+        exclude: '/node_modules/',
         use: {
           loader: 'babel-loader',
           options: {
@@ -55,10 +57,10 @@ const webpackBaseConfig = {
         test: /\.(ts|tsx)$/,
         use: {
           loader: "ts-loader",
-          // options: {
-          //   transpileOnly: true,
-          //   // speed up compilation significantly
-          // }
+          options: {
+            transpileOnly: true,
+            // speed up compilation significantly
+          }
         }
       }
     ]
