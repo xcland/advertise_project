@@ -38,7 +38,7 @@ class IndexPage extends Component<Props> {
     return (
       <div className="index-page">
         <div className="head-box">
-          <Header />
+          <Header history={history} />
         </div>
         <div className="content-box">
           <div className="left-content">

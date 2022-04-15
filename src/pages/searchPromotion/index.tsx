@@ -56,10 +56,11 @@ const cardData: Array<CardDataType> = [
 
 class SearchPromotionPage extends React.Component<IProps> {
   render(): React.ReactNode {
+    const { history } = this.props
     return (
       <div className="search-promotion-page-box">
         <div className="header">
-          <Header />
+          <Header history={history} />
         </div>
         <div className="content">
           <div className="account-box">
@@ -74,6 +75,7 @@ class SearchPromotionPage extends React.Component<IProps> {
             <WaveAnalysis />
           </div>
           <div className="user-portrait-box">
+            <div className="title">用户画像</div>
             <UserProtrait></UserProtrait>
           </div>
         </div>

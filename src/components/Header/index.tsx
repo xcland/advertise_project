@@ -3,12 +3,22 @@ import { UserOutlined } from '@ant-design/icons'
 import './style.scss'
 import { MENU_INDEX_CONFIG } from '@constants/menu'
 import MenuItem from './MenuItem'
-interface IProps {}
+interface IProps {
+  history?: any
+}
 
 interface IStates {}
 
 class Header extends React.Component<IProps, IStates> {
   state = {}
+
+  handleClick = (url: string | undefined) => {
+    const { history } = this.props
+    if (url && history) {
+      history.push(url)
+    }
+  }
+
   render() {
     const userName = 'wdnmd'
     return (
@@ -21,6 +31,9 @@ class Header extends React.Component<IProps, IStates> {
                 menuItemInfo={menuItem}
                 isActive={menuItem.isActive}
                 key={`index-menuItem${index.toString()}`}
+                onClick={(url: string | undefined) => {
+                  this.handleClick(url)
+                }}
               />
             ))}
           </div>
