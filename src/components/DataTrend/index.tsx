@@ -1,4 +1,5 @@
 import React from 'react'
+import { observer, inject } from 'mobx-react'
 import CardTabs from './components/CardTabs'
 import LineChart from './components/LineChart'
 import { CardItemType } from './components/CardTabs/types'
@@ -7,6 +8,8 @@ import './style.scss'
 
 interface IProps {
   cardData?: Array<CardDataType>
+  store?: any
+  globalStore?: any
 }
 interface IStates {}
 
@@ -36,7 +39,8 @@ const defaultCardData = [
     isSelected: false,
   },
 ]
-
+@inject('store', 'globalStore') // 和外层传入的 store 的属性名对应
+@observer
 class Chart extends React.Component<IProps, IStates> {
   state = {
     cardData: this.props.cardData || defaultCardData,
@@ -96,20 +100,28 @@ class Chart extends React.Component<IProps, IStates> {
     })
   }
 
+  componentDidMount = () => {
+    // this.props.store
+    const { store, globalStore } = this.props
+    console.log('isKAAccount', globalStore.isKAAccount)
+    store.getChartData()
+  }
+
   render(): React.ReactNode {
     const { cardData } = this.state
+    const { store } = this.props
     return (
       <div className="data-trend-component-box">
         <div className="card-tabs-box">
           <CardTabs
-            cardData={cardData}
+            cardData={this.props.cardData || cardData}
             onChange={(selectedId: string) => {
               this.handleTabsChange(selectedId)
             }}
           />
         </div>
         <div className="line-chart-box">
-          <LineChart chartData={this.state.chartData} />
+          <LineChart chartData={store.dataTrendData} />
         </div>
       </div>
     )

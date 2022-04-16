@@ -27,7 +27,7 @@ const webpackDevConfig = {
     }),
     new ForkTsCheckerWebpackPlugin(),
   ],
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, '../src'),
     historyApiFallback: false,
